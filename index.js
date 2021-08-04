@@ -12,11 +12,21 @@ const food = [{
     date: '8.08.2021'
 }];
 
+const FOOD_PROPERTIES_NUM = 3;
+
 function createCell(text) {
     const cell = document.createElement('td');
     cell.classList.add('cell');
     cell.innerText = text;
     return cell;
+}
+
+function createButton(text, label) {
+    const button = document.createElement('button');
+    button.classList.add('cell', 'button');
+    button.innerText = text;
+    button.setAttribute('aria-label', label);
+    return button;
 }
 
 function createHead(text) {
@@ -32,8 +42,31 @@ function createRow(nr, rowData) {
     [nr, rowData.name, rowData.category, rowData.date].forEach(text => {
         row.appendChild(createCell(text));
     });
+    row.appendChild(createButton('✕', 'Delete row'));
     return row;
 }
+
+function createInputRow(nr) {
+    const row = document.createElement('tr');
+    row.classList.add('table-row');
+    row.classList.add('input-row');
+    row.appendChild(createCell(nr));
+    for (let i = 0; i < FOOD_PROPERTIES_NUM; i++) {
+        row.appendChild(createInput());
+    }
+    row.appendChild(createButton('✓', 'Add row'));
+    return row;
+}
+
+function createInput() {
+    const input = document.createElement('input');
+    input.classList.add('input');
+    const td = document.createElement('td');
+    td.classList.add('cell');
+    td.appendChild(input);
+    return td;
+}
+
 
 function createTable(tableData) {
     const table = document.createElement('table');
@@ -41,7 +74,7 @@ function createTable(tableData) {
 
     const tableHead = document.createElement('thead');
     tableHead.classList.add('table-head');
-    ['Nr', 'Name', 'Category', 'Date'].forEach(text => {
+    ['Nr', 'Name', 'Category', 'Date', '\u00a0'].forEach(text => {
         tableHead.appendChild(createHead(text));
     });
     table.appendChild(tableHead);
@@ -50,6 +83,7 @@ function createTable(tableData) {
         table.appendChild(createRow(i + 1, tableData[i]));
     }
     table.classList.add('table');
+    table.appendChild(createInputRow(tableData.length + 1));
     return table;
 }
 
