@@ -12,14 +12,15 @@ const food = [{
     date: '8.08.2021'
 }];
 
-// metody do użycia:
-// const div = document.createElement('div');
-// element.classList.add('className');
-// element.appendChild(element2);
-// document.querySelector('#table-root');
-
 function createCell(text) {
     const cell = document.createElement('td');
+    cell.classList.add('cell');
+    cell.innerText = text;
+    return cell;
+}
+
+function createHead(text) {
+    const cell = document.createElement('th');
     cell.classList.add('cell');
     cell.innerText = text;
     return cell;
@@ -36,23 +37,18 @@ function createRow(nr, rowData) {
 
 function createTable(tableData) {
     const table = document.createElement('table');
-    // table.appendChild();
-    table.innerHTML = '<th class="cell">\n' +
-        '                    Nr\n' +
-        '                </th>\n' +
-        '                <th class="cell">\n' +
-        '                    Name\n' +
-        '                </th>\n' +
-        '                <th class="cell">\n' +
-        '                    Category\n' +
-        '                </th>\n' +
-        '                <th class="cell">\n' +
-        '                    Date\n' +
-        '                </th>';
+    table.classList.add('table');
+
+    const tableHead = document.createElement('thead');
+    tableHead.classList.add('table-head');
+    ['Nr', 'Name', 'Category', 'Date'].forEach(text => {
+        tableHead.appendChild(createHead(text));
+    });
+    table.appendChild(tableHead);
+
     for ( let i = 0; i < tableData.length; i++) {
         table.appendChild(createRow(i + 1, tableData[i]));
     }
-    // console.log('moj wykreatowany element to jest:', table);
     table.classList.add('table');
     return table;
 }
