@@ -23,3 +23,7 @@ var ATTRIBUTES = {
 var CLASSES = {
     INPUT_ROW: 'input-row',
 }
+
+var STORAGE_KEYS = {
+    FOOD: 'food'
+}
