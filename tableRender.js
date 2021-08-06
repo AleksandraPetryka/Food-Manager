@@ -12,8 +12,8 @@ var renderTable = function(food) {
         button.innerText = text;
 
         button.setAttribute('aria-label', label);
-        button.setAttribute('data-row-number', number);
-        button.setAttribute('data-action', action);
+        button.setAttribute(ATTRIBUTES.ROW_NUMBER, number);
+        button.setAttribute(ATTRIBUTES.ACTION, action);
         return button;
     }
 
@@ -34,7 +34,7 @@ var renderTable = function(food) {
             text: '✖',
             label: 'Delete row',
             number: nr,
-            action: 'DELETE',
+            action: FOOD_ACTIONS.DELETE,
         }));
         return row;
     }
@@ -42,7 +42,7 @@ var renderTable = function(food) {
     function createInputRow(nr) {
         const row = document.createElement('tr');
         row.classList.add('table-row');
-        row.classList.add('input-row');
+        row.classList.add(CLASSES.INPUT_ROW);
         row.appendChild(createCell(nr));
         FOOD_PROPERTIES_LIST.forEach(property => {
             row.appendChild(createInput(property));
@@ -51,7 +51,7 @@ var renderTable = function(food) {
             text: '✓',
             label: 'Add row',
             number: nr,
-            action: 'ADD',
+            action: FOOD_ACTIONS.ADD,
         }));
         return row;
     }

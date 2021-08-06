@@ -4,17 +4,17 @@ var handleDeleteRow = function(deleteRowAndRerender) {
         if (!target || target.tagName !== 'BUTTON') {
             return;
         }
-        if (target.getAttribute('data-action') !== 'DELETE') {
+        if (target.getAttribute(ATTRIBUTES.ACTION) !== FOOD_ACTIONS.DELETE) {
             return;
         }
-        const rowNumber = target.getAttribute('data-row-number');
+        const rowNumber = target.getAttribute(ATTRIBUTES.ROW_NUMBER);
         deleteRowAndRerender(rowNumber);
     });
 }
 
 var handleAddRow = function(addFoodAndRerender) {
     function addRow() {
-        const inputs = document.querySelector('.input-row').querySelectorAll('input');
+        const inputs = document.querySelector('.' + CLASSES.INPUT_ROW).querySelectorAll('input');
         const newFood = {};
         inputs.forEach(input => {
             newFood[input.name] = input.value;
@@ -27,7 +27,7 @@ var handleAddRow = function(addFoodAndRerender) {
         if (!target || target.tagName !== 'BUTTON') {
             return;
         }
-        if (target.getAttribute('data-action') !== 'ADD') {
+        if (target.getAttribute(ATTRIBUTES.ACTION) !== FOOD_ACTIONS.ADD) {
             return;
         }
         addRow();
