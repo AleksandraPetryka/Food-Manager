@@ -4,11 +4,16 @@ var FOOD_PROPERTIES = {
     DATE: 'date',
 };
 
-var FOOD_PROPERTIES_LIST = [
-    FOOD_PROPERTIES.NAME,
-    FOOD_PROPERTIES.CATEGORY,
-    FOOD_PROPERTIES.DATE
-];
+var INPUTS = [{
+    name: FOOD_PROPERTIES.NAME,
+    type: 'text',
+}, {
+    name: FOOD_PROPERTIES.CATEGORY,
+    type: 'text',
+}, {
+    name: FOOD_PROPERTIES.DATE,
+    type: 'date',
+}]
 
 var FOOD_ACTIONS = {
     ADD: 'add',

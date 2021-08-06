@@ -7,7 +7,7 @@ body {
     border-collapse: collapse;
     margin: 20px auto;
     font-size: 16px;
-    box-shadow: 10px 10px 12px 0px rgba(0,0,0,0.07);
+    box-shadow: 10px 10px 12px 0 rgba(0,0,0,0.07);
 
 }
 
@@ -25,10 +25,10 @@ body {
     width: 120px;
 }
 .cell:nth-child(3) {
-    width: 60px;
+    width: 100px;
 }
 .cell:nth-child(4) {
-    width: 80px;
+    width: 150px;
 }
 
 .cell input {

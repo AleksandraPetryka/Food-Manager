@@ -44,8 +44,8 @@ var renderTable = function(food) {
         row.classList.add('table-row');
         row.classList.add(CLASSES.INPUT_ROW);
         row.appendChild(createCell(nr));
-        FOOD_PROPERTIES_LIST.forEach(property => {
-            row.appendChild(createInput(property));
+        INPUTS.forEach(property => {
+            row.appendChild(createInput(property.name, property.type));
         });
         row.appendChild(createButton({
             text: '✓',
@@ -56,9 +56,10 @@ var renderTable = function(food) {
         return row;
     }
 
-    function createInput(name) {
+    function createInput(name, type) {
         const input = document.createElement('input');
         input.setAttribute('name', name);
+        input.setAttribute('type', type);
         const td = document.createElement('td');
         td.classList.add('cell');
         td.appendChild(input);
