@@ -6,11 +6,14 @@ var renderTable = function(food) {
         return cell;
     }
 
-    function createButton(text, label) {
+    function createButton({text, label, number, action}) {
         const button = document.createElement('button');
         button.classList.add('cell', 'button');
         button.innerText = text;
+
         button.setAttribute('aria-label', label);
+        button.setAttribute('data-row-number', number);
+        button.setAttribute('data-action', action);
         return button;
     }
 
@@ -27,7 +30,12 @@ var renderTable = function(food) {
         [nr, rowData.name, rowData.category, rowData.date].forEach(text => {
             row.appendChild(createCell(text));
         });
-        row.appendChild(createButton('✕', 'Delete row'));
+        row.appendChild(createButton({
+            text: '✖',
+            label: 'Delete row',
+            number: nr,
+            action: 'DELETE',
+        }));
         return row;
     }
 
@@ -39,7 +47,12 @@ var renderTable = function(food) {
         FOOD_PROPERTIES_LIST.forEach(property => {
             row.appendChild(createInput(property));
         });
-        row.appendChild(createButton('✓', 'Add row'));
+        row.appendChild(createButton({
+            text: '✓',
+            label: 'Add row',
+            number: nr,
+            action: 'ADD',
+        }));
         return row;
     }
 

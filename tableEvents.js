@@ -1,5 +1,15 @@
-function deleteRow() {
-
+var handleDeleteRow = function(deleteRowAndRerender) {
+    document.addEventListener('click', (event) => {
+        const { target } = event;
+        if (!target || target.tagName !== 'BUTTON') {
+            return;
+        }
+        if (target.getAttribute('data-action') !== 'DELETE') {
+            return;
+        }
+        const rowNumber = target.getAttribute('data-row-number');
+        deleteRowAndRerender(rowNumber);
+    });
 }
 
 var handleAddRow = function(addFoodAndRerender) {
@@ -12,6 +22,14 @@ var handleAddRow = function(addFoodAndRerender) {
         addFoodAndRerender(newFood);
     };
 
-    const inputButton = document.querySelector('.input-row').querySelector('button');
-    inputButton.addEventListener('click', addRow);
+    document.addEventListener('click', (event) =>  {
+        const { target } = event;
+        if (!target || target.tagName !== 'BUTTON') {
+            return;
+        }
+        if (target.getAttribute('data-action') !== 'ADD') {
+            return;
+        }
+        addRow();
+    });
 }
