@@ -1,6 +1,6 @@
-var handleDeleteRow = function(deleteRowAndRerender) {
+const handleDeleteRow = function (deleteRowAndRerender) {
     document.addEventListener('click', (event) => {
-        const { target } = event;
+        const {target} = event;
         if (!target || target.tagName !== 'BUTTON') {
             return;
         }
@@ -10,9 +10,9 @@ var handleDeleteRow = function(deleteRowAndRerender) {
         const rowNumber = target.getAttribute(ATTRIBUTES.ROW_NUMBER);
         deleteRowAndRerender(rowNumber);
     });
-}
+};
 
-var handleAddRow = function(addFoodAndRerender) {
+const handleAddRow = function (addFoodAndRerender) {
     function addRow() {
         const inputs = document.querySelector('.' + CLASSES.INPUT_ROW).querySelectorAll('input');
         const newFood = {};
@@ -20,10 +20,10 @@ var handleAddRow = function(addFoodAndRerender) {
             newFood[input.name] = input.value;
         });
         addFoodAndRerender(newFood);
-    };
+    }
 
-    document.addEventListener('click', (event) =>  {
-        const { target } = event;
+    document.addEventListener('click', (event) => {
+        const {target} = event;
         if (!target || target.tagName !== 'BUTTON') {
             return;
         }
@@ -32,4 +32,4 @@ var handleAddRow = function(addFoodAndRerender) {
         }
         addRow();
     });
-}
+};

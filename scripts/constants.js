@@ -1,10 +1,10 @@
-var FOOD_PROPERTIES = {
+const FOOD_PROPERTIES = {
     NAME: 'name',
     CATEGORY: 'category',
     DATE: 'date',
 };
 
-var INPUTS = [{
+const INPUTS = [{
     name: FOOD_PROPERTIES.NAME,
     type: 'text',
 }, {
@@ -13,22 +13,22 @@ var INPUTS = [{
 }, {
     name: FOOD_PROPERTIES.DATE,
     type: 'date',
-}]
+}];
 
-var FOOD_ACTIONS = {
+const FOOD_ACTIONS = {
     ADD: 'add',
     DELETE: 'delete',
-}
+};
 
-var ATTRIBUTES = {
+const ATTRIBUTES = {
     ACTION: 'data-action',
     ROW_NUMBER: 'data-row-number',
-}
+};
 
-var CLASSES = {
+const CLASSES = {
     INPUT_ROW: 'input-row',
-}
+};
 
-var STORAGE_KEYS = {
+const STORAGE_KEYS = {
     FOOD: 'food'
-}
+};

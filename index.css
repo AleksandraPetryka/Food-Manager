@@ -1,6 +1,7 @@
 body {
-    font-family: Roboto, sans-serif;
+    font-family: Poppins,sans-serif;;
     font-size: 16px;
+    letter-spacing: 1px;
 }
 
 .table {
@@ -28,7 +29,7 @@ body {
     width: 100px;
 }
 .cell:nth-child(4) {
-    width: 150px;
+    width: 135px;
 }
 
 .cell input {
